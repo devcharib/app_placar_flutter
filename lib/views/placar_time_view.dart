@@ -24,46 +24,36 @@ class PlacarTimeView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width / 2,
-          color: cor,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              InkWell(
-                onTap: () {
-                  adicionar();
-                },
-                child: Container(
-                  width: 100.0,
-                  height: 50.0,
-                  color: corButton,
+        GestureDetector(
+          onDoubleTap: () {
+            remover();
+          },
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width / 2,
+            color: cor,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    adicionar();
+                  },
+                  child: Text(
+                    '$pontos',
+                    style: TextStyle(
+                      height: 0.8,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 360.0,
+                      color: Colors.white,
+                      backgroundColor: corText,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-              ),
-              Text(
-                '$pontos',
-                style: TextStyle(
-                  height: 0.8,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 350.0,
-                  color: Colors.white,
-                  backgroundColor: corText,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              InkWell(
-                onTap: () {
-                  remover();
-                },
-                child: Container(
-                  width: 100.0,
-                  height: 50.0,
-                  color: corButton,
-                ),
-              )
-            ],
+              ],
+            ),
           ),
         ),
       ],

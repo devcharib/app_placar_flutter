@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_placar/controllers/placar_controller.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_app_placar/views/placar_view.dart';
 
 void main() {
@@ -15,9 +17,14 @@ void main() {
   // Ocultar a barra de status e a barra de navegação
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
-  //ir no manifest.xml
+  //ir no manifest.xml /android
   //android:screenOrientation ao elemento <activity>
-  runApp(App());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => PlacarController(),
+      child: App(),
+    ),
+  );
 }
 
 class App extends StatelessWidget {
